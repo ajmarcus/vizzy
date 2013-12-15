@@ -1,0 +1,12 @@
+body {
+  font-size:18px;
+}
+.wrapper {
+  max-width: 600px;
+  margin:0 auto;
+}
+svg {
+  border: 1px solid black;
+  width: 600px;
+  height: 80px;
+}

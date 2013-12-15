@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>viz template</title>
+  <meta name="description" content="viz template">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/default.css">
+</head>
+<body>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.3.11/d3.js"></script>
+  <script type="text/javascript">
+    console.log(d3);
+
+    d3.csv("2012pop_us_state.csv", function(data) { 
+      d3.select("body").selectAll("p")
+        .data(data)
+        .enter()
+        .append("p")
+        .text(function(d) { return d.state }); 
+
+      console.log(d3.selectAll("p"));
+    });
+
+
+  </script>
+  <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+</body>
+</html>
