@@ -18,7 +18,15 @@
         .data(data)
         .enter()
         .append("p")
-        .text(function(d) { return d.state }); 
+        .text(function(d) { return d.state })
+        .style("color", function(d) { 
+          if (parseInt(d.population) > 5000000) {
+            return "red";
+          }
+          else {
+            return "green";
+          }
+        }); 
 
       console.log(d3.selectAll("p"));
     });
