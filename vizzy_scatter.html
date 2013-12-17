@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>viz template</title>
+  <meta name="description" content="viz template">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/viz.css">
+</head>
+<body>
+  <div id="chart"></div>
+  <script src="js/d3.js"></script>
+  <script type="text/javascript">
+    console.log(d3);
+
+    var dataset = [ 
+      [5, 20], [480, 90], [250, 50], [100, 33], [330, 95],
+      [410, 12], [475, 44], [25, 67], [85, 21], [220, 88]
+    ];
+
+    var w = 600;
+    var h = 350;
+
+    var svg = d3.select("#chart")
+      .append("svg")
+      .attr("width", w)
+      .attr("height", h);
+
+    svg.selectAll("circle")
+      .data(dataset)
+      .enter()
+      .append("circle")
+       .attr("cx", function(d) {
+        return d[0];
+       })
+      .attr("cy", function(d) {
+        return d[1];
+      })
+      .attr("r", function(d) {
+        return Math.sqrt(h - d[1]);
+      });
+  </script>
+  <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+</body>
+</html>
